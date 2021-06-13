@@ -133,12 +133,52 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">stage1小組進度 (w2~w4) << <a href='stage1小組進度 (w2~w4).html'>Previous</a> <a href='各組影片表格.html'>Next</a> >> 各組影片表格<br /><h1>W4 stage1小組報告</h1>
-<h4><a href="https://40823246.github.io/stage1-bg8/downloads/%E8%87%AA%E5%8B%95%E5%88%86%E7%90%83%E6%A9%9F%E5%A0%B1%E5%91%8A.pdf">PDF</a></h4>
-<p><a href="./../downloads/stage1bg8最終版.ttt">模擬檔案</a></p>
-<h4>小組報告影片</h4>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/jh-xmONhDMI" title="YouTube video player" width="560"></iframe></p>
-<br />stage1小組進度 (w2~w4) << <a href='stage1小組進度 (w2~w4).html'>Previous</a> <a href='各組影片表格.html'>Next</a> >> 各組影片表格</div>
+    <div id="tipue_search_content">w15 << <a href='w15.html'>Previous</a> <br /><h1>w16</h1>
+<h4>1.onshape 零組件繪製</h4>
+<p><span style="color: #000000; background-color: #ff9900;">2021/06/12</span></p>
+<p><span style="color: #000000;"><a href="./../downloads/零件下載.zip">onshape零件下載</a></span></p>
+<p>onshape零件共享:</p>
+<p><a href="https://cad.onshape.com/documents/ade104e86af4289bfb5f3582/w/45ff20cb2b7f1c39a7e9e317/e/8e05de1b8eef2d98702cd126">https://cad.onshape.com/documents/ade104e86af4289bfb5f3582/w/45ff20cb2b7f1c39a7e9e317/e/8e05de1b8eef2d98702cd126</a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/gcUWvbbrHX4" title="YouTube video player" width="560"></iframe></p>
+<h4>2.將零件輸入<span>CoppeliaSim</span>建立場景</h4>
+<p><span style="background-color: #ff9900;">2021/06/12</span></p>
+<p><a href="./../downloads/項目2.zip">項目2檔案下載</a></p>
+<p>(1) 新增鍵盤a、s控制軸axis2旋轉</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">                 if (auxiliaryData[1]==97) then --a left turn in degree
+                    -- if key a pressed axis1 angle adds 5 degrees
+                     rotation1 = rotation1 - 5*deg
+                     sim.setJointPosition(axis2, rotation1)
+                end -- if a
+                if (auxiliaryData[1]==115) then --s right turn in degree
+                    -- if key s pressed axis1 angle adds 5 degrees
+                     rotation1 = rotation1 + 5*deg
+                     sim.setJointPosition(axis2, rotation1)
+                end -- if s</pre>
+<p>(2) r、l操控軸axis1的轉動</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/tMk4IQyt8ag" title="YouTube video player" width="560"></iframe></p>
+<h4>3.手臂末端加入吸盤</h4>
+<p><span style="background-color: #ff9900;">2021/06/12</span></p>
+<p>(1) 吸盤下載檔案與項目二相同</p>
+<p>(2) d、u操控軸axis3上下運動，p、q操控吸盤的吸放</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/idDDDgEvwxg" title="YouTube video player" width="560"></iframe></p>
+<h4>4.逆向運動學函式</h4>
+<p><span style="background-color: #ff9900;">2021/06/13</span></p>
+<p><a href="./../downloads/項目4.zip">項目4檔案下載</a></p>
+<p></p>
+<p>建立場景</p>
+<p><a href="./../downloads/項目4.zip"></a></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/xV-zrUGUTOY" title="YouTube video player" width="560"></iframe></p>
+<p>執行程式</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/kLm8ZOgFM1Q" title="YouTube video player" width="560"></iframe></p>
+<h4>5.Python remote API 逆向運動學函式</h4>
+<p><span style="background-color: #ff9900;">2021/06/13</span></p>
+<p><span><a href="./../downloads/項目5.zip">項目5檔案下載</a></span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/SlKyYaMQ9vQ" title="YouTube video player" width="560"></iframe></p>
+<h4>操作心得:</h4>
+<p>自己實際操作過後，匯入零件建立場景的部分還算能夠跟上，但是更深入的程式部分則要慢慢的理解以及吸收，也感謝40823214林厚宇同學的教導。</p>
+<p>參與30人直播教學:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/GUUKSgN93eI" title="YouTube video player" width="560"></iframe></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/gZd9KlVS9BI" title="YouTube video player" width="560"></iframe></p><br />w15 << <a href='w15.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
