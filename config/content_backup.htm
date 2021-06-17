@@ -384,6 +384,7 @@ print ('End')</pre>
 <h1>w16</h1>
 <h4>1.onshape 零組件繪製</h4>
 <p><span style="color: #000000; background-color: #ff9900;">2021/06/12</span></p>
+<p><span style="color: #000000;"><a href="/downloads/零件下載.zip">onshape零件下載</a></span></p>
 <p>onshape零件共享:</p>
 <p><a href="https://cad.onshape.com/documents/ade104e86af4289bfb5f3582/w/45ff20cb2b7f1c39a7e9e317/e/8e05de1b8eef2d98702cd126">https://cad.onshape.com/documents/ade104e86af4289bfb5f3582/w/45ff20cb2b7f1c39a7e9e317/e/8e05de1b8eef2d98702cd126</a></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/gcUWvbbrHX4" title="YouTube video player" width="560"></iframe></p>
@@ -417,6 +418,61 @@ print ('End')</pre>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/xV-zrUGUTOY" title="YouTube video player" width="560"></iframe></p>
 <p>執行程式</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/kLm8ZOgFM1Q" title="YouTube video player" width="560"></iframe></p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function moving(x,y)
+    a=400
+    b=400
+    c=math.pow((math.pow(x,2)+math.pow(y,2)),0.5)
+    s=(a+b+c)/2
+    area=math.pow((s*(s-a)*(s-b)*(s-c)),0.5)
+    h=area/2*c
+    deg1_base=math.atan(y/x)
+    if x&lt;0 and y&lt;0 then
+       deg1_base=deg1_base+math.pi
+    end
+    deg1_tri=math.asin(h/a)
+    deg1=deg1_base+deg1_tri
+    deg2=math.pi-(0.5*math.pi-deg1_tri)-math.acos(h/b)
+    deg3=deg2-deg1
+    sim.setJointTargetPosition(joint01,deg1)
+    sim.setJointTargetPosition(joint02,-deg2)
+    sim.setJointTargetPosition(joint03,deg3)
+end
+function sysCall_threadmain()
+   joint01=sim.getObjectHandle('joint1')
+   joint02=sim.getObjectHandle('joint2')
+   joint03=sim.getObjectHandle('joint3')
+   jointz=sim.getObjectHandle('jointz')
+   sim.setJointTargetPosition(joint01,0)
+   sim.setJointTargetPosition(joint02,0)
+   sim.setJointTargetPosition(joint03,0)
+   sim.setJointTargetPosition(jointz,0)
+   sim.setIntegerSignal("pad_switch",1)
+   sim.setJointTargetPosition(jointz,-0.04)
+   sim.wait(2)
+   sim.setJointTargetPosition(jointz,0)
+   while sim.getSimulationState()~=sim.simualation_advancing_abouttostopre do
+   sim.wait(2)
+   moving(0.2,0.7)
+   sim.wait(2)
+   sim.setIntegerSignal("pad_switch",0)
+   sim.wait(2)
+   sim.setIntegerSignal("pad_switch",1)
+   sim.wait(2)
+   sim.setJointTargetPosition(jointz,-0.04)
+   sim.wait(2)
+   sim.setJointTargetPosition(jointz,0)
+   sim.wait(2)
+   moving(-0.3,-0.55)
+   sim.wait(2)
+   sim.setIntegerSignal("pad_switch",0)
+   sim.wait(2)
+   sim.setIntegerSignal("pad_switch",1)
+   sim.wait(2)
+   sim.setJointTargetPosition(jointz,-0.04)
+   sim.wait(2)
+   sim.setJointTargetPosition(jointz,0)
+   end
+end</pre>
 <h4>5.Python remote API 逆向運動學函式</h4>
 <p><span style="background-color: #ff9900;">2021/06/13</span></p>
 <p><span><a href="/downloads/項目5.zip">項目5檔案下載</a></span></p>
